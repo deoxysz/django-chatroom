@@ -1,0 +1,113 @@
+body{
+    background-color: #ffffff;
+}
+
+
+.main-rooms{
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 30%;
+    justify-content: center;
+}
+
+.chat{
+    justify-content: center;
+    border-radius: 8px;
+    padding:1em 1.5em .5em 1.4em;
+    box-shadow: 0px 0px 2px 0px #e7e0e0;
+    margin:5% 1em 2em .5em;
+    width:30%;
+    background-color: #346596;
+    overflow:hidden;
+    max-width: 30%;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 0.5);
+  }
+
+  .chat-description{
+    padding-right:.3em;
+    text-overflow: hidden;
+  }
+
+  .host h3{
+    text-overflow: hidden;
+    padding-right:.1em;
+    color: aqua;
+    font-size:10px;
+  }
+  .chat h2{
+    color:#fffffe;
+    font-size: 50px;
+  }
+
+  .chat p{
+    color: #f0e7e7;
+    font-size: 1vw;
+    padding-bottom: 25px;
+  }
+
+a{
+    text-decoration: none;
+    color:#000000
+}
+
+a:hover{
+    text-decoration:wavy;
+    color:#3fe61d;
+}
+
+.buttons{
+    display:flex;
+    justify-content: center;
+}
+
+.roomedit{
+    text-align: center;
+    font-size:17px;
+    font-weight:bold;
+    padding:.5em;
+    margin:1em 1em .7em 1em ;
+    width:4em;
+    border:none;
+    border-radius: 3px;
+    background-color: #33614e;
+    color:#fffffe;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 0.3);
+
+}
+
+.room-name{
+  text-align: center;
+  font-size:50px;
+  font-style: italic;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  font-size: 2.5vw;
+}
+
+.welcome  {
+    color:rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 25px;
+}
+
+
+.room-creation{
+  color: #33614e;
+  font-size: 25px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .main-rooms{
+      margin-left:10%;
+      display:block;
+  }
+  .chat{
+      width:60%;
+  }
+}
+
+
+.room-container {
+  word-wrap: break-word;
+}

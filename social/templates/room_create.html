@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+
+
+<div class="text-center">
+    <h3> Create your chatroom </h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="Submit" value="Submit"/>
+    </form>
+</div>
+
+
+
+
+{% endblock content %}

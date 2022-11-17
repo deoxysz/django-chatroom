@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+<div class="text-center mt-5">
+    <h3>Edit your answer</h1>
+    <form action="" method="POST">
+            {% csrf_token %}
+            <input type="text" name="body" placeholder={{reply}}>
+            <input type="Submit" value="Submit"/>
+    </form>
+</div>
+
+{% endblock content %}

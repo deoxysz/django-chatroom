@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+    <form style="max-width: 270px; margin:auto;" action="" method="POST">
+        {% csrf_token %}
+        <h1 class="h3 mb-3 font-weight-normal">Are you sure you want to delete "{{delreply}}" ?</h1>
+        <a href="{{request.META.HTTP_REFERER}}">No</a>    
+        <input type="Submit" value="Confirm" />
+    </form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+<div class="row d-flex justify-content-center">
+        <div class="col-md-4 text-center mt-5">
+                <div class="single-box text-center mt-5">
+                <h1>{{room.name}}</h1>
+                <div class="col"><hr></div>
+                {{room.description}}
+                </div>
+        </div>
+</div>
+<div class="col"><hr></div>
+{% for reply in replies %}
+<div class="row d-flex justify-content-center">
+        <div class="col-md-4 text-center mt-2">
+        <span style="color:blue; font-size:10px">@{{reply.user.name}}</span> <span style="font-size:10px">: {{reply.published|timesince}} ago </span>
+                <div>{{reply.body}}</div>
+        {% if user == reply.user %}
+        <a href="{% url 'replyEdit' reply.id %}" style="font-size: 15px; color:aquamarine" class="mb-1"> Edit </a> /
+        <a href="{% url 'replyDelete' reply.id %}" style="font-size: 15px; color:rgb(209, 33, 33)" class="mb-1"> Delete </a>
+        <div class="col"><hr></div>
+        {% else %}
+        <div class="col"><hr></div>
+        </div> 
+</div>
+        {% endif %}
+{% endfor %}
+{% if request.user.is_authenticated %}
+<div class="single-box d-flex justify-content-center">
+                <form action="" method="POST">
+                {% csrf_token %}
+                <div class="row d-flex justify-content-center">
+                        <div class="mt-3 mb-3"><label for="description">Write your answer</label></div>
+                        <div class="justify-content-center"><input class="form-control input-lg " type="text" name="body" placeholder="Reply the post here"></div>
+                        <div><button class="btn btn-lg btn-primary btn-block mt-3" type="SUBMIT">Reply</button></div>
+                </div>
+                </form>
+</div>
+{% endif %}
+
+{% endblock content %}
+

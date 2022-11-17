@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<div class="welcome">
+<h1> Welcome to Twitle <i>{{request.user}} </i></h1>
+</div>
+{% else %} 
+<div class="welcome">
+<h1> Welcome to Twitle </h1>
+</div>
+{% endif %}
+
+<p></p>
+
+    {% if request.user.is_authenticated %}
+    <div class="room-creation">
+    <a href="{% url 'roomCreate' %}" style="color:red;"><u>Create your Room right now!</u></a>
+    </div>
+    <p>
+    {% endif %}         
+
+<div class="main-rooms">
+    {% for room in rooms %}
+        <div class="chat">
+            <div class="host"><h3>@{{room.host.username}}: {{room.published|timesince}} ago</h3></div>
+            <div class="room-name"> <a href="{% url 'room' room.id %}"> {{room.name|truncatechars:40}}</a></div> 
+            <span class="chat-description">
+                <p>{{room.description|truncatechars:50}}</p>
+            </span>
+                {% if user == room.host %}
+                <div class="buttons">
+                    <a class="roomedit" href="{% url 'roomEdit' room.id %}">Edit</a>
+                    <a style="background-color: rgb(119, 53, 53)" class="roomedit" href="{% url 'roomDelete' room.id %}">Delete </a>
+                </div>
+                {% endif %}
+        </div>
+    {% endfor %}    
+</div>
+
+
+
+{% endblock content %}
